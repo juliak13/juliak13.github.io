@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test HTTPS Fetch</title>
+</head>
+<body>
+  <h1>Student Data</h1>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    fetch("https://ec2-52-15-75-77.us-east-2.compute.amazonaws.com:8443/students/all")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      })
+      .catch(err => {
+        document.getElementById('output').textContent = 'Fetch failed: ' + err;
+      });
+  </script>
+</body>
+</html>
+
